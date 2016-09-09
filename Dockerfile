@@ -118,10 +118,9 @@ COPY ./configs/php-fpm.d/www.conf /etc/php-fpm.d/www.conf
 RUN mkdir /opt/openresty/nginx/conf/conf.d
 COPY ./configs/nginx/nginx.conf /opt/openresty/nginx/conf/nginx.conf
 COPY ./configs/nginx/conf.d/php.conf /opt/openresty/nginx/conf/conf.d/php.conf
-COPY ./bin/start.sh /root/start.sh
 
 EXPOSE 80 9000
-VOLUME ["/usr/share/nginx/html", "/www-data"]
+VOLUME ["/www-data"]
 
 CMD ["/usr/bin/supervisord"]
 #ENTRYPOINT ["/opt/openresty/bin/openresty", "-g", "daemon off;"]
